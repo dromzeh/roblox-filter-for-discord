@@ -11,7 +11,6 @@ from aiohttp import ClientSession
 
 with open('bannedwords.txt', 'r') as x:
     global bannedwords
-
     words = x.read()
     bannedwords = words.split()
 
@@ -27,26 +26,20 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-
     print(f'logged in as {bot.user.name} [{bot.user.id}]')
     print(f'bot coded by https://github.com/dromzeh, licensed under MIT')
 
 @bot.event
 async def on_message(message):
-
     msg = message.content.lower()
     channel = message.channel
-
     if channel.id == CHANNEL_ID:
-
         for word in bannedwords:
             if word in msg:
                 await message.delete()
-
                 messagelength = len(msg)
-
-                async with ClientSession() as session:
-                    webhook = discord.Webhook.from_url(WEBHOOK_URL, adapter=discord.AsyncWebhookAdapter(session))
+                async with ClientSession() as cs:
+                    webhook = discord.Webhook.from_url(WEBHOOK_URL, adapter=discord.AsyncWebhookAdapter(cs))
                     await webhook.send(content="#" * messagelength, username=message.author.name, avatar_url=message.author.avatar_url) 
 
 bot.run(TOKEN)
