@@ -3,32 +3,36 @@
 # The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 # THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import discord
+# importing
+import discord # discord.py
 from discord.ext import commands
 from discord.ext.commands import has_permissions
 from discord.ext.commands import guild_only
-from aiohttp import ClientSession
+from aiohttp import ClientSession # to make requests to the webhook
 
+# opens bannedwords.txt and sets it as a global variable
 with open('bannedwords.txt', 'r') as x:
     global bannedwords
     words = x.read()
     bannedwords = words.split()
 
-prefix = 'rr!' # u dont need to change this. the bot has no commands, in reality, you can put whatever you want here.
+prefix = 'rf!' # you dont need to change this. the bot has no commands - if you wanted to add commands in the future, this will be the prefix.
 
-TOKEN = "" # put your bot token in here
-WEBHOOK_URL = "" # enter the webhook url to put the tagged messages into
+TOKEN = "" # put bot token in here - https://discord.com/developers/applications (also enable intents)
+WEBHOOK_URL = "" # enter the webhook url to put the censored messages into
 CHANNEL_ID = 123456789 # change this to the channel id to 'moderate' (also must go to the the same channel as the webhook channel)
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=prefix, intents=intents)
 bot.remove_command('help')
 
+# on ready event (when bot finishes loading, etc etc)
 @bot.event
 async def on_ready():
     print(f'logged in as {bot.user.name} [{bot.user.id}]')
     print(f'bot coded by https://github.com/dromzeh, licensed under MIT')
 
+# on message event
 @bot.event
 async def on_message(message):
     msg = message.content.lower()
@@ -42,4 +46,5 @@ async def on_message(message):
                     webhook = discord.Webhook.from_url(WEBHOOK_URL, adapter=discord.AsyncWebhookAdapter(cs))
                     await webhook.send(content="#" * messagelength, username=message.author.name, avatar_url=message.author.avatar_url) 
 
+# running bot
 bot.run(TOKEN)
