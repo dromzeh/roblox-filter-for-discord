@@ -9,6 +9,7 @@
 <img src="https://img.shields.io/github/last-commit/dromzeh/roblox-filter-for-discord" alt="checks">
 <img src="https://img.shields.io/badge/python-3.8%2B-informational" alt="python">
 <img src="https://img.shields.io/badge/discord.py-latest-blueviolet" alt="dpy">
+<img src="https://img.shields.io/badge/license-MIT-orange" alt="dpy">
 </p> 
 
 # requirements
