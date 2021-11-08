@@ -20,7 +20,7 @@ you only need `discord.py` (pip install discord.py in cmd prompt) to run this, a
 - edit `bannedwords.txt` with the list of banned words, (scroll further down in the readme for more help)
 - invite the bot to your server, run the bot *(open command prompt in bot directory -> py bot.py)*
 
-# idk how to get a webhook url, channel id or a bot token!! help pls
+# getting channel id, creating a bot & making a webhook
 - to get the channel id, enable developer mode in discord settings, right click on the channel you're 'filtering' and copy the id.
 
 - to create a bot, go onto the discord developer portal, make an application and make it a bot, then copy the bot token and put it into the file, **don't give this token to anyone** (in a worst case scenario and you do, just regenerate it!)
