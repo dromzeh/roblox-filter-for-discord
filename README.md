@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/2V1ri5t.gif" alt="hi">
 </p>
 <h1 align="center">roblox filter for discord</h1>
-<h3 align ="center">a literal discord bot that does nothing except changed banned words into ######## ¯\_(ツ)_/¯
+<h3 align ="center">a discord bot that changes banned words into ########
 </h2>
 
 <p align = center>
