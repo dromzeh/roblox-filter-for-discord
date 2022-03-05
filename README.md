@@ -37,3 +37,6 @@ you only need `discord.py` (pip install discord.py in cmd prompt) to run this, a
 - if the bot isn't deleting your message, make sure the bot has administrator permissions.
 - if the webhook isn't working (##### isn't appearing), make sure that it is going to the correct channel, and you entered everything in correctly
 - any other errors will output in console, google can help you with those, if you're still struggling, just open an issue on this repo.
+
+# todo:
+- [ ] : completely rewrite the code
