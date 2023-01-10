@@ -1,0 +1,6 @@
+{
+    "TOKEN": "your token here",
+    "PREFIX": "rf!",
+    "WEBHOOK_URL": "enter the webhook url to put the censored messages into",
+    "CHANNEL_ID": "enter the channel ID of the channel you want monitored"
+}
